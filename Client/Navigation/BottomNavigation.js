@@ -204,10 +204,20 @@ const BottomNavigation = () => {
       />
       <BottomTab.Screen name="Product" component={Product} options={{
           headerShown: false,
+          // headerTitleStyle: {
+          //   // fontFamily: 'sans',
+          //   fontFamily:''
+          // },
         }} />
-      <BottomTab.Screen name="AddToCart" component={AddToCart} options={{
-          headerShown: false,
-        }} />
+      <BottomTab.Screen name="AddToCart" component={AddToCart} 
+      options={{
+          headerTitleAlign: 'center',
+          headerTitle : 'Add To Cart',
+          headerTitleStyle: {
+            fontFamily: 'JosefinSans-Regular',
+          },
+      }} 
+        />
       <BottomTab.Screen name="Profile" component={Profile} options={{
           headerShown: false,
         }} />

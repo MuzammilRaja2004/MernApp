@@ -3,7 +3,7 @@ import { StyleSheet, Text, View,  TextInput,
 import React, { useState } from 'react'
 
 const Counter = () => {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
   return (
     <View style={styles.counter}>
     <View style={styles.inner_view}>
@@ -38,7 +38,7 @@ const Counter = () => {
   )
 }
 const CounterTwo = () => {
-  const [countTwo, setCountTwo] = useState(0);
+  const [countTwo, setCountTwo] = useState(1);
     return (
       <View style={styles.counter2}>
         <View style={styles.inner_view2}>
@@ -104,14 +104,15 @@ const styles = StyleSheet.create({
       },
       text2: {
         fontSize: 20,
-        color:'black'
+        color:'white'
         
       },
       counttext2:{
         backgroundColor:'#00cd85',
-        borderRadius:25,
+        borderRadius:50,
         textAlign:'center',
-        color:'black',
+        color:'white',
+        padding:0,
       },
       counter2:{
         marginLeft:10,

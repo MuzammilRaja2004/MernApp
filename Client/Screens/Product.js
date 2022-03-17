@@ -90,71 +90,49 @@ import React from 'react';
 
 const Product = () => {
   return (
-    <View>
+    <View style={styles.mainview}>
       <ScrollView>
         <Searchbar />
-        <View >
           <View style={styles.innerProducts}>
-            <View>
+            <View style={{display: 'flex', flexDirection: 'row'}}>
               <Image
                 style={{
                   width: 200,
                   height: 150,
                   resizeMode: 'contain',
+                  marginLeft: -20,
                 }}
                 source={{
                   uri: 'https://laptopmart.pk/wp-content/uploads/2022/02/HP-Laptop-15-dy2089ms.jpg',
                 }}
               />
-            </View>
-
-            <View>
-              <Text
-                style={{
-                  fontSize: 20,
-                  color: '#1d1b27',
-                  marginTop: 15,
-                }}>
-                Model
-              </Text>
-              <Text style={{fontSize: 17, color: '#1d1b27'}}>Brand</Text>
-
-              <View
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
+              <View>
                 <Text
                   style={{
-                    fontSize: 17,
+                    fontSize: 20,
                     color: '#1d1b27',
-                    marginRight: 10,
+                    marginTop: '48%',
                   }}>
-                  Price
+                  Model
                 </Text>
-
-              </View>
-
-            </View>
-            <View>
-            <TouchableOpacity
+                <TouchableOpacity
                   style={{
                     backgroundColor: '#00cd85',
                     padding: 6,
                     borderRadius: 3,
                   }}>
-                  {/* <Text style={{fontSize: 15, color: '#ffffff'}}>
-                          Remove Cart
-                        </Text>
-                        ) : (<Text>Add To Cart</Text>) */}
                   <Text style={{fontSize: 15, color: '#ffffff'}}>
                     Add To Cart
                   </Text>
                 </TouchableOpacity>
+              </View>
+            </View>
+
+            <View>
+              <Text style={{fontSize: 17, color: '#1d1b27'}}>200$</Text>
             </View>
           </View>
-        </View>
+
       </ScrollView>
     </View>
   );
@@ -163,19 +141,26 @@ const Product = () => {
 export default Product;
 
 const styles = StyleSheet.create({
-    innerProducts: {
-        backgroundColor: "#ffffff",
-        height: "auto",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginRight: 10,
-        marginLeft: 10,
-        marginTop: 10,
-        marginBottom: 10,
-        borderRadius: 20,
-      },
-      innerProducts3: {
-        marginBottom: "30%",
-      },
+  mainview: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  innerProducts: {
+    backgroundColor: '#fff',
+    height: 100,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 20,
+    marginBottom: 10,
+    borderRadius: 5,
+    overflow: 'hidden',
+    paddingHorizontal: 10,
+    elevation: 5,
+  },
+  innerProducts3: {
+    marginBottom: '30%',
+  },
 });

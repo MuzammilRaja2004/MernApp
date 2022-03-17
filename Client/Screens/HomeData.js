@@ -9,7 +9,7 @@ const HomeDataCates = [
     {
       id: 2,
       image:require('../Src/Images/smartwatch.png'),
-      text: "Smart Watch",
+      text: "Watches",
     },
     {
       id: 3,

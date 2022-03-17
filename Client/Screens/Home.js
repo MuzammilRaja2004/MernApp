@@ -7,136 +7,190 @@ import {
   ScrollView,
   Button,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
-import Searchbar from "./Searchbar";
-import { HomeDataCates, CardData } from "./HomeData";
+import Searchbar from './Searchbar';
+import {HomeDataCates, CardData} from './HomeData';
 
 const Home = () => {
   return (
-    <View>
-      <ScrollView showsVerticalScrollIndicator={true}>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <ScrollView showsVerticalScrollIndicator={true}>
+          {/* Get Search bar From Screens Folder In SearchBar.js */}
+          <Searchbar />
 
-      {/* Get Search bar From Screens Folder In SearchBar.js */}
-        <Searchbar />
+          {/* Create Categorise Section */}
+          <View style={{marginTop: 30, flexDirection: 'row'}}>
+            <View>
+              <Text
+                style={{fontSize: 25, fontWeight: 'bold', color: '#00cd8f'}}>
+                Categorise
+              </Text>
 
-        {/* Create Categorise Section */}
-        <View style={{ marginTop: 30, flexDirection: "row" }}>
-          <View>
-            <Text
-              style={{ fontSize: 25, fontWeight: "bold", color: "#00cd8f" }}
-            >
-              Categorise
-            </Text>
-
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                marginTop: 20,
-              }}
-            >
-              {HomeDataCates.map((item, index) => {
-                return (
-                  <View key={index}>
-                    <TouchableOpacity>
-                      <View >
-                        <Image
-                          source={item.image}
-                          
-                          style={{
-                            height: 50,
-                            width: 50,
-                            marginLeft: 30,
-                            marginBottom: 10,
-                          }}
-                          
-                        />
-                      </View>
-
-                      <View style={{ marginLeft: 30 }}>
-                        <Text>{item.text}</Text>
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                );
-              })}
-            </View>
-          </View>
-        </View>
-
-
-        {/* High Rated Products */}
-        <View style={{ marginTop: 30, flexDirection: "row" }}>
-          <View>
-            <Text
-              style={{ fontSize: 25, fontWeight: "bold", color: "#00cd8f" }}
-            >
-              High Rate Products
-            </Text>
-
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
               <View
                 style={{
-                  flexDirection: "row",
-                  marginRight: 20,
-                  justifyContent: "space-between",
-                }}
-              >
-                {CardData.map((items, index) => {
+                  flex: 1,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: 20,
+                }}>
+                {HomeDataCates.map((item, index) => {
                   return (
-                    <View
-                      key={index}
-                      style={[styles.helloo, styles[`hello${index}`]]}
-                    >
-                    <View>
-                      <Image
-                        source={items.image}
+                    <View key={index}>
+                      <View
                         style={{
-                          width: 380,
-                          height: 250,
-                          resizeMode: "contain",
-                        }}
-                      />
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                        }}>
+                        <TouchableOpacity>
+                          <View>
+                            <Image
+                              source={item.image}
+                              // style={{
+                              //   height: 50,
+                              //   width: 50,
+                              //   // marginRight: 10,
+                              //   // marginLeft: 10,
+                              //   // marginBottom: 10,
+                              // }}
+                              style={[
+                                styles.icon_images,
+                                styles[`icon_images${index}`],
+                              ]}
+                            />
+                            <Text style={[
+                                styles.icon_text,
+                                styles[`icon_text${index}`],
+                              ]}>{item.text}</Text>
+                          </View>
 
-                      <View>
-                        <Text style={{color:'white',fontSize:30, textTransform:'capitalize',marginLeft:20,marginBottom:10,}}>{items.text}</Text>
+                          {/* <View >
+                      </View> */}
+                        </TouchableOpacity>
                       </View>
-                    </View>
                     </View>
                   );
                 })}
               </View>
-            </ScrollView>
+            </View>
           </View>
-        </View>
 
-      </ScrollView>
-    </View>
+          {/* High Rated Products */}
+          <View style={{marginTop: 30, flexDirection: 'row'}}>
+            <View>
+              <Text
+                style={{fontSize: 25, fontWeight: 'bold', color: '#00cd8f'}}>
+                High Rate Products
+              </Text>
+
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginRight: 10,
+                    justifyContent: 'space-between',
+                  }}>
+                  {CardData.map((items, index) => {
+                    return (
+                      <View
+                        key={index}
+                        style={[styles.helloo, styles[`hello${index}`]]}>
+                        <View>
+                          <Image
+                            source={items.image}
+                            style={{
+                              width: 380,
+                              height: 250,
+                              resizeMode: 'contain',
+                            }}
+                          />
+
+                          <View>
+                            <Text
+                              style={{
+                                color: 'white',
+                                fontSize: 30,
+                                textTransform: 'capitalize',
+                                marginLeft: 20,
+                                marginBottom: 10,
+                              }}>
+                              {items.text}
+                            </Text>
+                          </View>
+                        </View>
+                      </View>
+                    );
+                  })}
+                </View>
+              </ScrollView>
+            </View>
+          </View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-    helloo: {
-        flexDirection: "row",
-        marginTop: 20,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "#ffffff",
-        marginRight: 10,
-        borderRadius: 10,
-        marginLeft:10,
-        marginBottom:10,
-      },
-      hello3: {
-        marginRight: -10,
-      },
-      images:{
-        backgroundColor:'#00b761',
-      }
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 10,
+  },
+  helloo: {
+    flexDirection: 'row',
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    marginRight: 10,
+    marginLeft: 3,
+    marginBottom: 10,
+    elevation: 5,
+  },
+  images: {
+    backgroundColor: '#00b761',
+  },
+  icon_images: {
+    height: 50,
+    width: 50,
+    marginBottom: 10,
+    display: 'flex',
+    // justifyContent : 'center',
+  },
+  icon_images1: {
+    marginLeft: 35,
+  },
+  icon_text:{
+    // marginLeft: 30,
+    textAlign: 'center',
+    fontSize: 18,
+  },
+  icon_text1:{
+    marginLeft: 20,
+  },
+  
+  icon_images2: {
+    marginLeft: 35,
+  },
+  icon_text2:{
+    marginLeft: 20,
+  },
+  icon_images3: {
+    marginLeft: 35,
+  },
+  icon_text3:{
+    marginLeft: 25,
+  },
+  
+
 });

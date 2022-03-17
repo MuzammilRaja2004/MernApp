@@ -23,7 +23,7 @@ const Searchbar = () => {
             color="black"
             style={{marginLeft: 20, marginRight: 15}}
           />
-          <TextInput placeholder="Search" />
+          <TextInput placeholder="Search" keyboardType='default'/>
         </View>
 
         <View style={styles.sortBtn}>
@@ -33,7 +33,6 @@ const Searchbar = () => {
             name="sort-variant"
             size={30}
             color="white"
-            // style={{marginLeft: 20, marginRight: 15}}
           />
         </View>
       </View>
@@ -51,6 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
+    elevation: 3,
   },
   input: {
     fontSize: 20,

@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View,Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {CounterTwo} from './Counter';
+// import { Button, ButtonGroup, withTheme, } from 'react-native-elements';
 
 const AddToCart = () => {
   return (
@@ -11,7 +12,7 @@ const AddToCart = () => {
             source={{
               uri: 'https://laptopmart.pk/wp-content/uploads/2022/02/HP-Laptop-15-dy2089ms.jpg',
             }}
-            style={{height: 100, width: 150, resizeMode: 'contain'}}
+            style={{height: 150, width: 200, resizeMode: 'contain', marginLeft: -20}}
           />
           <View style={styles.carttext_view}>
             <Text style={styles.cart_head}>Model</Text>
@@ -34,18 +35,24 @@ const AddToCart = () => {
 export default AddToCart;
 
 const styles = StyleSheet.create({
+  main_view: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   tocart_view: {
-    backgroundColor: "white",
-    height: 110,
+    backgroundColor: '#fff',
+    height: 100,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginRight: 10,
     marginLeft: 10,
-    marginTop: 10,
+    marginTop: 20,
     marginBottom: 10,
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    borderRadius: 20,
-    alignItems: "center",
+    borderRadius: 5,
+    overflow: 'hidden',
+    paddingHorizontal: 10,
+    elevation: 5,
   },
   cartimage_view: {
     display: "flex",
