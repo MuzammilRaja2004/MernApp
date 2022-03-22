@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
       counter:{
         marginLeft:10,
         marginRight:10,
-        color:'black'
+        color:'white'
       },
       inner_view2: {
         display: "flex",

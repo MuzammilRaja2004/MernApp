@@ -8,14 +8,25 @@ import {
   Button,
   TouchableOpacity,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import React from 'react';
+import {Dimensions} from 'react-native';
 import Searchbar from './Searchbar';
 import {HomeDataCates, CardData} from './HomeData';
 
 const Home = () => {
+  const {width, height} = Dimensions.get('window');
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: 'white',
+        width: width / 1,
+        textAlign: 'center',
+        alignItems: 'center',
+      }}>
+      <StatusBar backgroundColor={'#00cd8f'} />
       <View>
         <ScrollView showsVerticalScrollIndicator={true}>
           {/* Get Search bar From Screens Folder In SearchBar.js */}
@@ -62,10 +73,13 @@ const Home = () => {
                                 styles[`icon_images${index}`],
                               ]}
                             />
-                            <Text style={[
+                            <Text
+                              style={[
                                 styles.icon_text,
                                 styles[`icon_text${index}`],
-                              ]}>{item.text}</Text>
+                              ]}>
+                              {item.text}
+                            </Text>
                           </View>
 
                           {/* <View >
@@ -80,7 +94,13 @@ const Home = () => {
           </View>
 
           {/* High Rated Products */}
-          <View style={{marginTop: 30, flexDirection: 'row'}}>
+          <View
+            style={{
+              marginTop: 30,
+              flexDirection: 'row',
+              width: width / 1.1,
+              textAlign: 'center',
+            }}>
             <View>
               <Text
                 style={{fontSize: 25, fontWeight: 'bold', color: '#00cd8f'}}>
@@ -104,8 +124,9 @@ const Home = () => {
                         <View>
                           <Image
                             source={items.image}
+                            // w={width / 1.5}
                             style={{
-                              width: 380,
+                              width: width / 1.1,
                               height: 250,
                               resizeMode: 'contain',
                             }}
@@ -152,8 +173,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    marginRight: 10,
+    // marginRight: 10,
     marginLeft: 3,
+    marginRight: 10,
     marginBottom: 10,
     elevation: 5,
   },
@@ -170,27 +192,25 @@ const styles = StyleSheet.create({
   icon_images1: {
     marginLeft: 35,
   },
-  icon_text:{
+  icon_text: {
     // marginLeft: 30,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
   },
-  icon_text1:{
+  icon_text1: {
     marginLeft: 20,
   },
-  
+
   icon_images2: {
     marginLeft: 35,
   },
-  icon_text2:{
+  icon_text2: {
     marginLeft: 20,
   },
   icon_images3: {
     marginLeft: 35,
   },
-  icon_text3:{
+  icon_text3: {
     marginLeft: 25,
   },
-  
-
 });

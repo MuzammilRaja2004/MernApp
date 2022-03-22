@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,StatusBar } from 'react-native'
 import React from 'react'
 // import Product from './Client/Screens/Product'
 import BottomNavigation from './Client/Navigation/BottomNavigation'

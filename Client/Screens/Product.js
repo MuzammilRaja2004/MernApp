@@ -85,15 +85,20 @@ import Searchbar from './Searchbar';
 
 // const styles = StyleSheet.create({});
 
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View,SafeAreaView,} from 'react-native';
 import React from 'react';
+import {Dimensions} from 'react-native';
 
-const Product = () => {
+const Product = ({navigation}) => {
+  const {width, height} = Dimensions.get('window');
+
   return (
+    <SafeAreaView style={{flex:1,backgroundColor:'white', width: width / 1,textAlign: 'center',alignItems:'center'}}>
     <View style={styles.mainview}>
       <ScrollView>
         <Searchbar />
-          <View style={styles.innerProducts}>
+   <TouchableOpacity onPress={() => navigation.navigate("ProductView")} activeOpacity={0.9}>
+          <View style={[styles.innerProducts, {width: width / 1.1,}]}>
             <View style={{display: 'flex', flexDirection: 'row'}}>
               <Image
                 style={{
@@ -133,8 +138,11 @@ const Product = () => {
             </View>
           </View>
 
+    </TouchableOpacity>
       </ScrollView>
     </View>
+    </SafeAreaView>
+
   );
 };
 
@@ -146,13 +154,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   innerProducts: {
+    // width: width / 1.1,
     backgroundColor: '#fff',
     height: 100,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginRight: 10,
-    marginLeft: 10,
+    // marginRight: 10,
+    // marginLeft: 10,
     marginTop: 20,
     marginBottom: 10,
     borderRadius: 5,

@@ -1,95 +1,136 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
 import React from 'react';
-import ProfileHeader from './ProfileHeader';
-import Icon1 from 'react-native-vector-icons/MaterialIcons';
-import Icon2 from 'react-native-vector-icons/Entypo';
-import Icon3 from 'react-native-vector-icons/FontAwesome5';
+import {Dimensions} from 'react-native';
+import Icon1 from 'react-native-vector-icons/FontAwesome5';
+import Icon2 from 'react-native-vector-icons/Ionicons';
+import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon4 from 'react-native-vector-icons/MaterialIcons';
 
 const Profile = () => {
+  const {width, height} = Dimensions.get('window');
   return (
-    <View >
-      <ProfileHeader />
-      <View style={styles.profile_view}>
-        
-        <View style={styles.basic_info}>
-        <View style={styles.image_view}>
-          <Text>Image</Text>
-        </View>
-
-        <View style={styles.userOffical}>
-          <Text>Username</Text>
-          <Text>Email</Text>
-        </View>
-        </View>
-
-        <View style={styles.order_view}>
-          <View style={styles.order_head}>
-            <Text>My Orders</Text>
-          </View>
-          <View style={styles.order_detail}>
-            <View style={styles.pay}>
-              <Icon1 name="payments" size={30} color="black" />
-              <Text>To Pay</Text>
-            </View>
-
-            <View style={styles.ship}>
-              <Icon2 name="box" size={30} color="black" />
-              <Text>To Ship</Text>
-            </View>
-
-            <View style={styles.receive}>
-              <Icon3 name="shipping-fast" size={30} color="black" />
-              <Text style={styles.font}>To Receive</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={styles.account_info}>
+    <SafeAreaView
+      style={{backgroundColor: '#00cd8f', width: width / 1, flex: 1}}>
+      <View>
+        <View
+          style={[
+            styles.head,
+            {
+              display: 'flex',
+              flexDirection: 'row',
+              backgroundColor: 'white',
+              paddingVertical: 10,
+              width: width / 1,
+              marginTop: 15,
+            },
+          ]}>
           <View>
-            <Text>Account Information</Text>
+            <Icon1 name="user-circle" size={30} color="#00cd8f" />
+          </View>
+          <View>
+            <Text
+              style={[
+                styles.text,
+                {
+                  fontFamily: 'JosefinSans-Regular',
+                  fontSize: 20,
+                  marginLeft: 10,
+                },
+              ]}>
+              Username
+            </Text>
+          </View>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: 'white',
+            paddingVertical: 10,
+            width: width / 1,
+            marginTop: 15,
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
+          <View>
+            <Icon2 name="settings-sharp" size={30} color="#00cd8f" />
+          </View>
+          <View>
+            <Text
+              style={[
+                styles.text,
+                {
+                  fontFamily: 'JosefinSans-Regular',
+                  fontSize: 22,
+                  marginLeft: 10,
+                },
+              ]}>
+              Setting
+            </Text>
+          </View>
+        </View>
+
+        <View>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              backgroundColor: 'white',
+              paddingVertical: 10,
+              width: width / 1,
+              marginTop: 15,
+            }}>
+            <View>
+              <Icon3
+                name="account-supervisor-circle"
+                size={30}
+                color="#00cd8f"
+              />
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontFamily: 'JosefinSans-Regular',
+                  fontSize: 22,
+                  marginLeft: 10,
+                }}>
+                Account Settings
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              backgroundColor: 'white',
+              paddingVertical: 10,
+              width: width / 1,
+              marginTop: 15,
+            }}>
+            <View>
+              <Icon4 name="security" size={30} color="#00cd8f" />
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontFamily: 'JosefinSans-Regular',
+                  fontSize: 22,
+                  marginLeft: 10,
+                }}>
+                Privacy & Security
+              </Text>
+            </View>
           </View>
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 export default Profile;
 
-const styles = StyleSheet.create({
-  profile_view: {
-    backgroundColor:'white',
-    display:'flex',
-    height:'100%',
-  },
-  basic_info:{
-    display:'flex',
-    flexDirection:'row',
-  },
-  order_detail:{
-    display:'flex',
-    flexDirection:'row',
-    justifyContent:'space-around',
-    textAlign:'center',
-    alignItems:'center',
-  },
-  receive:{
-    display:'flex',
-    flexDirection:'column',
-    alignItems:'center',
-  },
-  ship:{
-    display:'flex',
-    flexDirection:'column',
-    alignItems:'center',
-  },
-  pay:{
-    display:'flex',
-    flexDirection:'column',
-    alignItems:'center',
-  },
-  font:{
-    fontFamily:'GloriaHallelujah-Regular',
-  },
-
-});
+const styles = StyleSheet.create({});
