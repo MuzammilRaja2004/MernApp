@@ -7,7 +7,7 @@ import Product from '../Screens/Product';
 import AddToCart from '../Screens/AddToCart';
 import Profile from '../Screens/Profile';
 import ProductView from '../Screens/ProductView';
-import AddOrdersDetails from '../Screens/AddOrdersDetails';
+import Checkout from '../Screens/Checkout';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const viewOrderStack = createNativeStackNavigator();
@@ -18,7 +18,7 @@ const ViewOrders = () => {
         options={{
           headerShown: false,
         }} />
-      <viewOrderStack.Screen name="AddOrdersDetails" component={AddOrdersDetails} 
+      <viewOrderStack.Screen name="Checkout" component={Checkout} 
       options={{
           headerShown: false,
         }} 

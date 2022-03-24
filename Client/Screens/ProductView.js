@@ -11,7 +11,7 @@ import {Counter} from './Counter';
 import Icon4 from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import Product from './Product';
-import AddOrdersDetails from './AddOrdersDetails';
+import Checkout from './Checkout';
 import {} from 'react-native-safe-area-context';
 // import { Button} from 'react-native-elements';
 import {Dimensions} from 'react-native';
@@ -107,7 +107,7 @@ const ProductView = ({navigation}) => {
 
           <TouchableOpacity
             activeOpacity={0.9}
-            onPress={() => navigation.navigate("AddOrdersDetails")}
+            onPress={() => navigation.navigate("Checkout")}
             style={{
               backgroundColor: 'white',
               width: width / 1.2,
