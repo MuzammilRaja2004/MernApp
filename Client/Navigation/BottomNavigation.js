@@ -9,12 +9,44 @@ import Profile from '../Screens/Profile';
 import ProductView from '../Screens/ProductView';
 import Checkout from '../Screens/Checkout';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Edit from '../Screens/Edit';
+import PaymentMethod from '../Screens/PaymentMethod';
+import OrderDetails from '../Screens/OrderDetails';
 
+
+const TabEdit = createNativeStackNavigator();
+const EditThings = () => {
+  return (
+    <TabEdit.Navigator>
+      <TabEdit.Screen name="Product" component={Product}
+        options={{
+          headerShown: false,
+        }} />
+      <TabEdit.Screen name="Edit" component={Edit}/>
+      <TabEdit.Screen name="PaymentMethod" component={PaymentMethod}
+      options={{
+        headerTitle: 'Payment Method',
+        headerTitleStyle: {
+          fontFamily: 'JosefinSans-Regular',
+        },
+      }}
+      />
+      <TabEdit.Screen name="OrderDetails" component={OrderDetails}
+      options={{
+        headerTitle: 'Order Details',
+        headerTitleStyle: {
+          fontFamily: 'JosefinSans-Regular',
+        },
+      }}
+      />
+    </TabEdit.Navigator>
+  );
+};
 const viewOrderStack = createNativeStackNavigator();
 const ViewOrders = () => {
   return (
     <viewOrderStack.Navigator>
-      <viewOrderStack.Screen name="Product" component={Product}
+      <viewOrderStack.Screen name="EditThings" component={EditThings}
         options={{
           headerShown: false,
         }} />

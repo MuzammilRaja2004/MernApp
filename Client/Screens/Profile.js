@@ -5,6 +5,7 @@ import Icon1 from 'react-native-vector-icons/FontAwesome5';
 import Icon2 from 'react-native-vector-icons/Ionicons';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon4 from 'react-native-vector-icons/MaterialIcons';
+import { Avatar } from 'react-native-elements';
 
 const Profile = () => {
   const {width, height} = Dimensions.get('window');
@@ -25,7 +26,12 @@ const Profile = () => {
             },
           ]}>
           <View>
-            <Icon1 name="user-circle" size={30} color="#00cd8f" />
+            {/* <Icon1 name="user-circle" size={30} color="#00cd8f" /> */}
+            <Avatar
+              size={64}
+              rounded
+              source={{uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'}}
+            />
           </View>
           <View>
             <Text

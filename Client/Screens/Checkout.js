@@ -4,6 +4,7 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import React from 'react';
 import Icon1 from 'react-native-vector-icons/AntDesign';
@@ -54,7 +55,7 @@ const Checkout = ({navigation}) => {
       </View>
 
       {/* Address */}
-      <View style={{width: width / 1, paddingHorizontal:20, marginTop:15}}>
+      <View style={{width: width / 1, paddingHorizontal: 20, marginTop: 15}}>
         <View
           style={{
             display: 'flex',
@@ -72,7 +73,7 @@ const Checkout = ({navigation}) => {
             </Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
               <Text style={{color: '#00cd8f', fontSize: 17}}>EDIT</Text>
             </TouchableOpacity>
           </View>
@@ -116,7 +117,7 @@ const Checkout = ({navigation}) => {
             </Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
               <Text style={{color: '#00cd8f', fontSize: 17}}>EDIT</Text>
             </TouchableOpacity>
           </View>
@@ -143,19 +144,171 @@ const Checkout = ({navigation}) => {
                 fontSize: 17,
                 fontFamily: 'JosefinSans-Regular',
                 marginLeft: 20,
-                
               }}>
-              
               mail@gmail.com
             </Text>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
               <Text style={{color: '#00cd8f', fontSize: 17}}>EDIT</Text>
             </TouchableOpacity>
           </View>
         </View>
+      </View>
 
+      {/* Delivery Option */}
+      <View style={{marginTop: 20, width: width / 1, paddingHorizontal: 20}}>
+        <View>
+          <Text
+            style={{
+              color: 'black',
+              fontSize: 20,
+              fontFamily: 'JosefinSans-Regular',
+            }}>
+            Delivery
+          </Text>
+        </View>
+
+        <View style={{width: width / 1}}>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              // justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <View>
+              <Image
+                style={{
+                  width: width / 2.5,
+                  height: 150,
+                  marginLeft: -20,
+                }}
+                source={{
+                  uri: 'https://laptopmart.pk/wp-content/uploads/2022/02/HP-Laptop-15-dy2089ms.jpg',
+                }}
+              />
+            </View>
+            <View>
+              <Text
+                style={{
+                  color: 'black',
+                  fontSize: 20,
+                  fontFamily: 'JosefinSans-Regular',
+                }}>
+                Product Model
+              </Text>
+              <Text
+                style={{
+                  color: 'black',
+                  fontSize: 12,
+                  fontFamily: 'JosefinSans-Regular',
+                }}>
+                Product Description
+              </Text>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  width: width / 1.7,
+                }}>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontSize: 18,
+                    fontFamily: 'JosefinSans-Regular',
+                  }}>
+                  Rs 89,900
+                </Text>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontSize: 18,
+                    fontFamily: 'JosefinSans-Regular',
+                  }}>
+                  Qty:1
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        <View>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 20,
+            }}>
+            <Text
+              style={{
+                color: 'black',
+                fontSize: 18,
+                fontFamily: 'JosefinSans-Regular',
+              }}>
+              Shipping Fee
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+                fontSize: 18,
+                fontFamily: 'JosefinSans-Regular',
+              }}>
+              Rs 200
+            </Text>
+          </View>
+        </View>
+
+
+        <View>
+          <View
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: 20,
+            }}>
+            <View>
+            <Text
+              style={{
+                color: 'black',
+                fontSize: 18,
+                fontFamily: 'JosefinSans-Regular',
+              }}>
+              Total
+            </Text>
+            <Text
+              style={{
+                color: 'black',
+                fontSize: 18,
+                fontFamily: 'JosefinSans-Regular',
+                 color: '#00cd8f',
+                 fontWeight: 'bold',
+              }}>
+              Rs 90,100
+            </Text>
+            </View>
+            <View>
+            <TouchableOpacity 
+            onPress={() => navigation.navigate("PaymentMethod")}
+            style={{
+              backgroundColor: '#00cd8f',
+              width: width / 3.3,
+              paddingVertical: 10,
+              borderRadius: 25,
+              alignItems: 'center',
+              marginTop: 20,
+            }}
+            >
+              <Text style={{fontSize: 18 ,color: 'white',}}>BUY NOW</Text>
+            </TouchableOpacity>
+            </View>
+            
+          </View>
+        </View>
 
       </View>
     </SafeAreaView>
