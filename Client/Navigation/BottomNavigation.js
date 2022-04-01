@@ -139,7 +139,7 @@ const BottomNavigation = () => {
         name="Profile"
         component={Profile}
         options={{
-          headerTitle: 'Profile',
+          headerTitle: 'My Profile',
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontFamily: 'JosefinSans-Regular',

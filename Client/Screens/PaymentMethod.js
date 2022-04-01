@@ -74,17 +74,14 @@ const PaymentMethod = ({navigation}) => {
           </View>
         </View>
       </TouchableOpacity>
-      {/* <View
+      <View
         style={{
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
           paddingHorizontal: 10,
-          flex: 1,
-          backgroundColor: '#f2f2f2',
-          marginTop: 100,
-          // height: height / 1,
+          height: height / 0.72,
         }}>
         <Text
           style={{
@@ -102,7 +99,7 @@ const PaymentMethod = ({navigation}) => {
           }}>
           Rs. 89000
         </Text>
-      </View> */}
+      </View>
     </SafeAreaView>
   );
 };
