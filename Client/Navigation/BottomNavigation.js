@@ -12,32 +12,62 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Edit from '../Screens/Edit';
 import PaymentMethod from '../Screens/PaymentMethod';
 import OrderDetails from '../Screens/OrderDetails';
+import EditProfile from '../Screens/EditProfile';
 
-
+const TabProfile = createNativeStackNavigator();
+const ProfilesEdit = () => {
+  return (
+    <TabProfile.Navigator>
+      <TabProfile.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <TabProfile.Screen name="EditProfile" component={EditProfile} 
+      options={{
+          headerTitle: 'EditProfile',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontFamily: 'JosefinSans-Regular',
+          },
+        }}
+      />
+    </TabProfile.Navigator>
+  );
+};
 const TabEdit = createNativeStackNavigator();
 const EditThings = () => {
   return (
     <TabEdit.Navigator>
-      <TabEdit.Screen name="Product" component={Product}
+      <TabEdit.Screen
+        name="Product"
+        component={Product}
         options={{
           headerShown: false,
-        }} />
-      <TabEdit.Screen name="Edit" component={Edit}/>
-      <TabEdit.Screen name="PaymentMethod" component={PaymentMethod}
-      options={{
-        headerTitle: 'Payment Method',
-        headerTitleStyle: {
-          fontFamily: 'JosefinSans-Regular',
-        },
-      }}
+        }}
       />
-      <TabEdit.Screen name="OrderDetails" component={OrderDetails}
-      options={{
-        headerTitle: 'Order Details',
-        headerTitleStyle: {
-          fontFamily: 'JosefinSans-Regular',
-        },
-      }}
+      <TabEdit.Screen name="Edit" component={Edit} />
+      <TabEdit.Screen
+        name="PaymentMethod"
+        component={PaymentMethod}
+        options={{
+          headerTitle: 'Payment Method',
+          headerTitleStyle: {
+            fontFamily: 'JosefinSans-Regular',
+          },
+        }}
+      />
+      <TabEdit.Screen
+        name="OrderDetails"
+        component={OrderDetails}
+        options={{
+          headerTitle: 'Order Details',
+          headerTitleStyle: {
+            fontFamily: 'JosefinSans-Regular',
+          },
+        }}
       />
     </TabEdit.Navigator>
   );
@@ -46,14 +76,19 @@ const viewOrderStack = createNativeStackNavigator();
 const ViewOrders = () => {
   return (
     <viewOrderStack.Navigator>
-      <viewOrderStack.Screen name="EditThings" component={EditThings}
+      <viewOrderStack.Screen
+        name="EditThings"
+        component={EditThings}
         options={{
           headerShown: false,
-        }} />
-      <viewOrderStack.Screen name="Checkout" component={Checkout} 
-      options={{
+        }}
+      />
+      <viewOrderStack.Screen
+        name="Checkout"
+        component={Checkout}
+        options={{
           headerShown: false,
-        }} 
+        }}
       />
     </viewOrderStack.Navigator>
   );
@@ -137,13 +172,16 @@ const BottomNavigation = () => {
       />
       <BottomTab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfilesEdit}
+        // options={{
+        //   headerTitle: 'My Profile',
+        //   headerTitleAlign: 'center',
+        //   headerTitleStyle: {
+        //     fontFamily: 'JosefinSans-Regular',
+        //   },
+        // }}
         options={{
-          headerTitle: 'My Profile',
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontFamily: 'JosefinSans-Regular',
-          },
+          headerShown: false,
         }}
       />
     </BottomTab.Navigator>

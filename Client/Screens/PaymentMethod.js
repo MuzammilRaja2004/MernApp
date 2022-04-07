@@ -74,6 +74,7 @@ const PaymentMethod = ({navigation}) => {
           </View>
         </View>
       </TouchableOpacity>
+      
       <View
         style={{
           display: 'flex',

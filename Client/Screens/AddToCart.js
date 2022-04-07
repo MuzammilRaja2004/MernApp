@@ -11,7 +11,7 @@ import {CounterTwo} from './Counter';
 // import { Button, ButtonGroup, withTheme, } from 'react-native-elements';
 import {Dimensions} from 'react-native';
 
-const AddToCart = () => {
+const AddToCart = ({navigation}) => {
   const {width, height} = Dimensions.get('window');
 
   return (
@@ -40,7 +40,7 @@ const AddToCart = () => {
             <View style={styles.carttext_view}>
               <Text style={styles.cart_head}>Model</Text>
               <Text style={styles.cart_text}>Price</Text>
-              <TouchableOpacity style={styles.order_btn}>
+              <TouchableOpacity style={styles.order_btn} onPress={() => navigation.navigate("Checkout")}>
                 <Text style={{color: 'white', fontSize: 16}}>Place Order</Text>
               </TouchableOpacity>
             </View>
