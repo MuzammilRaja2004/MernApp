@@ -5,6 +5,9 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
+import {
+  Box,
+} from 'native-base';
 import React from 'react';
 import {Dimensions} from 'react-native';
 import {Avatar} from 'react-native-elements';
@@ -21,7 +24,7 @@ const Profile = ({navigation}) => {
     <SafeAreaView
       style={{
         backgroundColor: 'white',
-        width: width / 1,
+        // width: width / 1,
         height: height / 1,
         paddingTop: 10,
         alignItems: 'center',
@@ -38,8 +41,9 @@ const Profile = ({navigation}) => {
                 </Text>
 
           </View>
-
-      <View>
+      <View alignItems={'center'}>
+            <Box alignItems="center" w={width / 1.1} mt={4}>
+            <View>
         <View
           style={{
             width: width / 1,
@@ -258,6 +262,8 @@ const Profile = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
+            </Box>
+          </View>
     </SafeAreaView>
   );
 };

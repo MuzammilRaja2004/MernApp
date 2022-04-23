@@ -4,7 +4,11 @@ import {
   View,
   SafeAreaView,
   TouchableOpacity,
+  ScrollView
 } from 'react-native';
+import {
+  Box,
+} from 'native-base';
 import React from 'react';
 import Icon2 from 'react-native-vector-icons/Foundation';
 import Icon3 from 'react-native-vector-icons/MaterialIcons';
@@ -18,10 +22,12 @@ const PaymentMethod = ({navigation}) => {
       style={{
         backgroundColor: 'white',
         flex: 1,
-        width: width / 1,
         height: height / 1,
-        // paddingHorizontal: 0,
       }}>
+        <ScrollView showsVerticalScrollIndicator={true}>
+
+      <View alignItems={'center'}>
+            <Box alignItems="center" w={width / 1.1} mt={2}>
       <TouchableOpacity onPress={() => navigation.navigate('OrderDetails')}>
         <View
           style={{
@@ -77,12 +83,18 @@ const PaymentMethod = ({navigation}) => {
       
       <View
         style={{
+        width: width / 1.1,
+        height: height / 1.5,
+        flex:1,
+        justifyContent: 'flex-end',
+        }}
+        >
+        <View 
+        style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingHorizontal: 10,
-          height: height / 0.72,
+          justifyContent : 'space-between',
+         
         }}>
         <Text
           style={{
@@ -100,7 +112,12 @@ const PaymentMethod = ({navigation}) => {
           }}>
           Rs. 89000
         </Text>
+        </View>
       </View>
+          
+            </Box>
+          </View>
+          </ScrollView>
     </SafeAreaView>
   );
 };

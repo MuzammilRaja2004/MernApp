@@ -6,6 +6,9 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
+import {
+  Box,
+} from 'native-base';
 import React from 'react';
 import {CounterTwo} from './Counter';
 // import { Button, ButtonGroup, withTheme, } from 'react-native-elements';
@@ -19,12 +22,14 @@ const AddToCart = ({navigation}) => {
       style={{
         flex: 1,
         backgroundColor: 'white',
-        width: width / 1,
+        // width: width / 1,
         textAlign: 'center',
         alignItems: 'center',
       }}>
       <View style={styles.main_view}>
-        <View style={[styles.tocart_view,{width: width / 1.1,}]}>
+        <View alignItems={'center'}>
+            <Box alignItems="center" w={width / 1.1} mt={2}>
+            <View style={[styles.tocart_view,{width: width / 1.1,}]}>
           <View style={styles.cartimage_view}>
             <Image
               source={{
@@ -51,6 +56,11 @@ const AddToCart = ({navigation}) => {
             <CounterTwo />
           </View>
         </View>
+            </Box>
+          </View>
+        
+
+
       </View>
     </SafeAreaView>
   );

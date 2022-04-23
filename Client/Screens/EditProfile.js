@@ -90,7 +90,6 @@ const EditProfile = () => {
                     paddingVertical: 7,
                     borderRadius: 25,
                     alignItems: 'center',
-                    // marginTop: 20,
                   }}>
                   <Text style={{fontSize: 18, color: 'white'}}>Edit</Text>
                 </TouchableOpacity>

@@ -14,7 +14,7 @@ function App(){
   const Stack = createNativeStackNavigator();
 return(
  <NativeBaseProvider>
-      <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
       {/* <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen

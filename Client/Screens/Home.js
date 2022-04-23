@@ -10,6 +10,9 @@ import {
   SafeAreaView,
   StatusBar,
 } from 'react-native';
+import {
+  Box,
+} from 'native-base';
 import React from 'react';
 import {Dimensions} from 'react-native';
 import Searchbar from './Searchbar';
@@ -22,18 +25,31 @@ const Home = () => {
       style={{
         flex: 1,
         backgroundColor: 'white',
-        width: width / 1,
+        // width: width / 1,
+        height: height / 1,
         textAlign: 'center',
         alignItems: 'center',
       }}>
-      <StatusBar backgroundColor={'#00cd8f'} />
-      <View>
-        <ScrollView showsVerticalScrollIndicator={true}>
+      {/* <StatusBar backgroundColor={'#00cd8f'} /> */}
+      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
+
+      
+
+
+      <View alignItems={'center'}>
+            <Box alignItems="center" w={width / 1.1} mt={2}>
+            <View>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {/* Get Search bar From Screens Folder In SearchBar.js */}
           <Searchbar />
 
           {/* Create Categorise Section */}
-          <View style={{marginTop: 30, flexDirection: 'row'}}>
+          <View
+            style={{
+              marginTop: 30,
+              flexDirection: 'row',
+              width: width / 1.1,
+            }}>
             <View>
               <Text
                 style={{fontSize: 25, fontWeight: 'bold', color: '#00cd8f'}}>
@@ -44,30 +60,25 @@ const Home = () => {
                 style={{
                   flex: 1,
                   flexDirection: 'row',
-                  justifyContent: 'center',
                   alignItems: 'center',
                   marginTop: 20,
                 }}>
                 {HomeDataCates.map((item, index) => {
                   return (
-                    <View key={index}>
+                    <View
+                      key={index}
+                      style={{
+                        width: width / 0.98 / 4,
+                        alignItems: 'center',
+                      }}>
                       <View
                         style={{
                           display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
                         }}>
                         <TouchableOpacity>
                           <View>
                             <Image
                               source={item.image}
-                              // style={{
-                              //   height: 50,
-                              //   width: 50,
-                              //   // marginRight: 10,
-                              //   // marginLeft: 10,
-                              //   // marginBottom: 10,
-                              // }}
                               style={[
                                 styles.icon_images,
                                 styles[`icon_images${index}`],
@@ -77,13 +88,13 @@ const Home = () => {
                               style={[
                                 styles.icon_text,
                                 styles[`icon_text${index}`],
+                                {
+                                  width: width / 1 / 4,
+                                },
                               ]}>
                               {item.text}
                             </Text>
                           </View>
-
-                          {/* <View >
-                      </View> */}
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -154,6 +165,8 @@ const Home = () => {
           </View>
         </ScrollView>
       </View>
+            </Box>
+          </View>
     </SafeAreaView>
   );
 };
@@ -173,7 +186,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ffffff',
     borderRadius: 10,
-    // marginRight: 10,
     marginLeft: 3,
     marginRight: 10,
     marginBottom: 10,
@@ -187,30 +199,5 @@ const styles = StyleSheet.create({
     width: 50,
     marginBottom: 10,
     display: 'flex',
-    // justifyContent : 'center',
-  },
-  icon_images1: {
-    marginLeft: 35,
-  },
-  icon_text: {
-    // marginLeft: 30,
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  icon_text1: {
-    marginLeft: 20,
-  },
-
-  icon_images2: {
-    marginLeft: 35,
-  },
-  icon_text2: {
-    marginLeft: 20,
-  },
-  icon_images3: {
-    marginLeft: 35,
-  },
-  icon_text3: {
-    marginLeft: 25,
   },
 });

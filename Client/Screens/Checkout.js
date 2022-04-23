@@ -5,7 +5,11 @@ import {
   View,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from 'react-native';
+import {
+  Box,
+} from 'native-base';
 import React from 'react';
 import Icon1 from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
@@ -19,9 +23,7 @@ const Checkout = ({navigation}) => {
       style={{
         backgroundColor: 'white',
         flex: 1,
-        width: width / 1,
-        // textAlign: 'center',
-        // alignItems: 'center',
+        height: height / 1
       }}>
       {/* Header */}
       <View style={{marginTop: 10}}>
@@ -53,8 +55,11 @@ const Checkout = ({navigation}) => {
           </View>
         </View>
       </View>
-
-      {/* Address */}
+<ScrollView showsVerticalScrollIndicator={false}>
+      
+      <View alignItems={'center'}>
+            <Box alignItems="center" w={width / 1.1} mt={2}>
+          {/* Address */}
       <View style={{width: width / 1, paddingHorizontal: 20, marginTop: 15}}>
         <View
           style={{
@@ -311,6 +316,9 @@ const Checkout = ({navigation}) => {
         </View>
 
       </View>
+            </Box>
+          </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
