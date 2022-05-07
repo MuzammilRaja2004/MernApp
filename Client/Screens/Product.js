@@ -1,23 +1,14 @@
 import {Image, ScrollView, TouchableOpacity} from 'react-native';
-// import React from 'react';
+import React, {useEffect} from 'react';
 import Searchbar from './Searchbar';
-import {
-  Input,
-  Icon,
-  Box,
-  Flex,
-  Divider,
-  Button,
-  useDisclose,
-  Stack,
-} from 'native-base';
+import {Box} from 'native-base';
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import React from 'react';
 import {Dimensions} from 'react-native';
 
 const Product = ({navigation}) => {
-  const {width, height} = Dimensions.get('window');
 
+  const {width, height} = Dimensions.get('window');
+  
   return (
     <SafeAreaView
       style={{

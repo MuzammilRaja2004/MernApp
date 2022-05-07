@@ -22,7 +22,7 @@ import {
 } from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {bgcolors, textcolors} from '../theme';
-
+import fetchFun from '../../fetch';
 const SignIn = ({navigation}) => {
   // Create States
   const [email, setEmail] = useState('');
@@ -30,57 +30,68 @@ const SignIn = ({navigation}) => {
   const {width, height} = Dimensions.get('window');
   const {isOpen, onOpen, onClose} = useDisclose();
 
-  const signIn = () => {
-    console.log(email);
-    console.log(password);
-    Alert.alert(email, 'email');
-  };
+  
+    const signIn = async () => {
+      console.log('button wroking');
+      const data = await fetchFun('auth/login', {
+        email,
+        password,
+      });
+      console.log(data, 'dataaaaaaaaaaaaaaaaaaaaaaaaa');
+  
+      if (data.error) {
+        console.log(data.error, 'errorrrrrrrr');
+      } else {
+        navigation.navigate('BottomNavigation');
+      }
+    };
   return (
     <View>
       <StatusBar backgroundColor="#EFF3F6" barStyle="dark-content" />
       <ScrollView>
         <View style={styles.main_view}>
-          <View style={[styles.inner_view,{height:height /1} ]}>
+          <View style={[styles.inner_view, {height: height / 1}]}>
             <View>
               <Text style={styles.text_head_one}>Sign In</Text>
               <Text style={styles.text_pera_one}>Existing Account</Text>
             </View>
 
             <Box alignItems="center">
-            <Stack w={width / 1.1} mt={10}>
-              <Input
-                p={3}
-                my={2}
-                borderColor={textcolors.greycolor}
-                borderRadius={5}
-                placeholder="Email Address"
-                fontSize={18}
-                onChangeText={text => setEmail(text)}
-              />
-              <Input
-                p={3}
-                my={2}
-                borderColor={textcolors.greycolor}
-                borderRadius={5}
-                placeholder="Strong Password"
-                fontSize={18}
-                onChangeText={text => setPassword(text)}
-                InputRightElement={
-                  <Icon
-                    as={<MaterialIcons name="visibility-off" />}
-                    size={5}
-                    mr="2"
-                    color="muted.400"
-                  />
-                }
-              />
-            </Stack>
+              <Stack w={width / 1.1} mt={10}>
+                <Input
+                  p={3}
+                  my={2}
+                  borderColor={textcolors.greycolor}
+                  borderRadius={5}
+                  placeholder="Email Address"
+                  fontSize={18}
+                  onChangeText={text => setEmail(text)}
+                />
+                <Input
+                  p={3}
+                  my={2}
+                  borderColor={textcolors.greycolor}
+                  borderRadius={5}
+                  placeholder="Strong Password"
+                  fontSize={18}
+                  onChangeText={text => setPassword(text)}
+                  InputRightElement={
+                    <Icon
+                      as={<MaterialIcons name="visibility-off" />}
+                      size={5}
+                      mr="2"
+                      color="muted.400"
+                    />
+                  }
+                />
+              </Stack>
             </Box>
 
             <View alignItems={'center'}>
               <Box alignItems="center" w={width / 1.1} mt={4}>
                 <Button
-                  onPress={onOpen}
+                  // onPress={onOpen}
+                  onPress={() => signIn()}
                   w={'100%'}
                   mb={2}
                   style={styles.SignIn_button}>
@@ -142,8 +153,7 @@ const SignIn = ({navigation}) => {
                     textAlign="center"
                     // color={'#ffffff'}
                     style={styles.button_text}
-                    onPress={() => navigation.navigate("SignUp")}
-                    >
+                    onPress={() => navigation.navigate('SignUp')}>
                     Create New Account
                   </Text>
                 </Button>
@@ -188,7 +198,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     color: '#1d1b27',
   },
-
 
   // Button Styling
   SignIn_button: {

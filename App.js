@@ -15,8 +15,8 @@ function App(){
 return(
  <NativeBaseProvider>
       <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
-      {/* <NavigationContainer>
-        <Stack.Navigator>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="StartingDisplay">
           <Stack.Screen
             name="StartingDisplay"
             component={StartingDisplay}
@@ -38,21 +38,21 @@ return(
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
-      </NavigationContainer> */}
-      <BottomNavigation />
+      </NavigationContainer>
+      {/* <BottomNavigation /> */}
 </NativeBaseProvider>
 )
 }
 
 
-const styles = StyleSheet.create({})
-const Root = () => {
-  return (
-    <NavigationContainer>
-      <App />
-    </NavigationContainer>
-  );
-};
+// const styles = StyleSheet.create({})
+// const Root = () => {
+//   return (
+//     <NavigationContainer>
+//       <App />
+//     </NavigationContainer>
+//   );
+// };
 
-// export default App;
-export default Root;
+// export default Root;
+export default App;

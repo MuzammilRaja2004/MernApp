@@ -6,6 +6,9 @@ import {
   TouchableOpacity,
   Alert
 } from 'react-native';
+import {
+  Box,
+} from 'native-base';
 import React from 'react';
 import {Dimensions} from 'react-native';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';

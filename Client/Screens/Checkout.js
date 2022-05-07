@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
+
 import {
   Box,
 } from 'native-base';

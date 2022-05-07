@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StatusBar,
   Dimensions,
+  Alert,
 } from 'react-native';
 import React, {useState} from 'react';
 import {
@@ -19,19 +20,36 @@ import {
   Divider,
   Flex,
 } from 'native-base';
+import axios from 'axios';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {bgcolors, textcolors} from '../theme';
+// import Home from '../Home';
+import BottomNavigation from '../../Navigation/BottomNavigation';
+import fetchFun from "../../fetch";
 
 const SignUp = ({navigation}) => {
   // Create States
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const signUp = () => {
-    console.log(email);
-    console.log(password);
-    console.log(username);
+
+  const signUp = async () => {
+    console.log('button wroking')
+    const data = await fetchFun('auth/signup',{  
+      email,
+      password,
+      username,
+    })
+    console.log(data, 'dataaaaaaaaaaaaaaaaaaaaaaaaa');
+    
+    if (data.error) {
+      console.log(data.error, 'errorrrrrrrr');
+    }
+    else {
+      navigation.navigate('BottomNavigation');
+    }
   };
+
   const {width, height} = Dimensions.get('window');
   const {isOpen, onOpen, onClose} = useDisclose();
   return (
@@ -94,14 +112,16 @@ const SignUp = ({navigation}) => {
                   w={'100%'}
                   mb={2}
                   style={styles.SignUp_button}
-                  onPress={() => signUp()}>
+                  onPress={() => signUp()}
+                  // onPress={() => navigation.navigate("BottomNavigation")}
+                >
                   <Text
                     fontSize={20}
                     p={2}
                     textAlign="center"
                     // color={'#ffffff'}
                     style={styles.button_text}>
-                    Sign In
+                    Sign Up
                   </Text>
                 </Button>
               </Box>
