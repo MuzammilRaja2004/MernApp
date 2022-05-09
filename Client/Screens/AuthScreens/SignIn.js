@@ -22,7 +22,7 @@ import {
 } from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {bgcolors, textcolors} from '../theme';
-import fetchFun from '../../fetch';
+import {fetchFun} from '../../fetch';
 const SignIn = ({navigation}) => {
   // Create States
   const [email, setEmail] = useState('');

@@ -25,7 +25,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {bgcolors, textcolors} from '../theme';
 // import Home from '../Home';
 import BottomNavigation from '../../Navigation/BottomNavigation';
-import fetchFun from "../../fetch";
+import {fetchFun} from '../../fetch';
 
 const SignUp = ({navigation}) => {
   // Create States
@@ -34,18 +34,17 @@ const SignUp = ({navigation}) => {
   const [username, setUsername] = useState('');
 
   const signUp = async () => {
-    console.log('button wroking')
-    const data = await fetchFun('auth/signup',{  
+    console.log('button wroking');
+    const data = await fetchFun('auth/signup', {
       email,
       password,
       username,
-    })
+    });
     console.log(data, 'dataaaaaaaaaaaaaaaaaaaaaaaaa');
-    
+
     if (data.error) {
       console.log(data.error, 'errorrrrrrrr');
-    }
-    else {
+    } else {
       navigation.navigate('BottomNavigation');
     }
   };
